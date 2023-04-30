@@ -4,8 +4,15 @@ public class Imovel extends Item {
     private int numComodos;
     private int area;
 
-    public Imovel(String nome, String tipo, int valor, String descricao, 
-            String localizacao, String dataAquisicao, int numComodos, int area) {
+    public Imovel(
+            String nome,
+            String tipo,
+            int valor,
+            String descricao,
+            String localizacao,
+            String dataAquisicao,
+            int numComodos,
+            int area) {
         super(nome, tipo, valor, descricao, localizacao, dataAquisicao);
         this.numComodos = numComodos;
         this.area = area;
@@ -26,6 +33,7 @@ public class Imovel extends Item {
     public void setArea(int area) {
         this.area = area;
     }
+
     public String toString() {
         return getNome()
                 + "\n" + getTipo()

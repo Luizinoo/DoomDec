@@ -7,8 +7,14 @@ public abstract class Item {
     private String descricao;
     private String localizacao;
     private String dataAquisicao;
-    
-    public Item(String nome, String tipo, int valor, String descricao, String localizacao, String dataAquisicao) {
+
+    public Item(
+            String nome,
+            String tipo,
+            int valor,
+            String descricao,
+            String localizacao,
+            String dataAquisicao) {
         this.nome = nome;
         this.tipo = tipo;
         this.valor = valor;

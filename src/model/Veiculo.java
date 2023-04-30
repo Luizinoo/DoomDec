@@ -4,8 +4,15 @@ public class Veiculo extends Item {
     private String identificacao;
     private char porte;
 
-    public Veiculo(String nome, String tipo, int valor, String descricao, String localizacao, String dataAquisicao,
-            String identificacao, char porte) {
+    public Veiculo(
+            String nome,
+            String tipo,
+            int valor,
+            String descricao,
+            String localizacao,
+            String dataAquisicao,
+            String identificacao,
+            char porte) {
         super(nome, tipo, valor, descricao, localizacao, dataAquisicao);
         this.identificacao = identificacao;
         this.porte = porte;

@@ -7,7 +7,10 @@ public class Inventario {
     private boolean proprietarioPessoaFisica;
     private ArrayList<Item> itens;
 
-    public Inventario(String nomeProprietario, boolean proprietarioPessoaFisica, ArrayList<Item> itens) {
+    public Inventario(
+            String nomeProprietario,
+            boolean proprietarioPessoaFisica,
+            ArrayList<Item> itens) {
         this.nomeProprietario = nomeProprietario;
         this.proprietarioPessoaFisica = proprietarioPessoaFisica;
         this.itens = itens;
@@ -36,6 +39,7 @@ public class Inventario {
     public void setItens(ArrayList<Item> itens) {
         this.itens = itens;
     }
+
     @Override
     public String toString() {
         String result;
@@ -45,9 +49,11 @@ public class Inventario {
         }
         return result;
     }
+
     public void cadastrarItem(Item novoItem) {
         itens.add(novoItem);
     }
+
     public Item pesquisarItem(String nome) {
         for (Item item : itens) {
             if (item.getNome() == nome) {
@@ -56,6 +62,7 @@ public class Inventario {
         }
         return null;
     }
+
     public void excluirItem(String nome) {
         itens.remove(pesquisarItem(nome));
     }
