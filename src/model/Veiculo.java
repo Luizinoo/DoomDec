@@ -26,4 +26,16 @@ public class Veiculo extends Item {
     public void setPorte(char porte) {
         this.porte = porte;
     }
+
+    public String toString() {
+        return getNome()
+                + "\n" + getTipo()
+                + "\n" + getValor()
+                + "\n" + getDescricao()
+                + "\n" + getLocalizacao()
+                + "\n" + getDataAquisicao()
+                + "\n" + getIdentificacao()
+                + "\n" + getPorte()
+                + "\n";
+    }
 }

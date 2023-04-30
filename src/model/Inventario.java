@@ -36,4 +36,27 @@ public class Inventario {
     public void setItens(ArrayList<Item> itens) {
         this.itens = itens;
     }
+    @Override
+    public String toString() {
+        String result;
+        result = getNomeProprietario();
+        for (Item item : itens) {
+            result += item.getNome();
+        }
+        return result;
+    }
+    public void cadastrarItem(Item novoItem) {
+        itens.add(novoItem);
+    }
+    public Item pesquisarItem(String nome) {
+        for (Item item : itens) {
+            if (item.getNome() == nome) {
+                return item;
+            }
+        }
+        return null;
+    }
+    public void excluirItem(String nome) {
+        itens.remove(pesquisarItem(nome));
+    }
 }
