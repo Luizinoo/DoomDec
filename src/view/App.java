@@ -37,7 +37,6 @@ public class App extends JFrame {
         texto.setFont(new Font("Regular", Font.BOLD, 70));
 
         //configurando botões
-        // criarBem = new JButton("Criar Bem");
         JButton criarBem = new JButton("Criar Bem");
         criarBem.setBounds(480,365,400, 60);
         criarBem.setFont(new Font("Regular", Font.BOLD, 48));
