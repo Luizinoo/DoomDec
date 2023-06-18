@@ -15,16 +15,6 @@ public class CrudInventario extends JFrame implements ActionListener {
 
     JButton criarImovel, criarMovel, criarVeiculo;
     JPanel opMovel, opImovel, opVeiculo;
-    
-    opImovel.setLayout(null);
-    opImovel.setBounds(0, 650, 1360, 200);
-    opImovel.getContentPane().setBackground(new Color(255, 255, 255));
-    opMovel.setLayout(null);
-    opMovel.setBounds(0, 650, 1360, 200);
-    opMovel.getContentPane().setBackground(new Color(255, 255, 255));
-    opVeiculo.setLayout(null);
-    opVeiculo.setBounds(0, 650, 1360, 200);
-    opVeiculo.getContentPane().setBackground(new Color(255, 255, 255));
 
     public CrudInventario(){
         
@@ -178,6 +168,16 @@ public class CrudInventario extends JFrame implements ActionListener {
         porte.setFont(new Font("Regular", Font.BOLD, 29));
         porte.setBackground(new Color(217, 217, 217));
 
+        opImovel.setLayout(null);
+        opImovel.setBounds(0, 530, 1360, 200);
+        opImovel.setBackground(new Color(255, 255, 255));
+        opMovel.setLayout(null);
+        opMovel.setBounds(0, 530, 1360, 200);
+        opMovel.setBackground(new Color(255, 255, 255));
+        opVeiculo.setLayout(null);
+        opVeiculo.setBounds(0, 530, 1360, 200);
+        opVeiculo.setBackground(new Color(255, 255, 255));
+
         //Adicionando
         this.add(criarImovel);
         this.add(criarMovel);
@@ -194,10 +194,16 @@ public class CrudInventario extends JFrame implements ActionListener {
         this.add(dLocal);
         this.add(data);
         this.add(dData);
+        opMovel.add(dimencoes);
+        opMovel.add(dDimencoes);
         opImovel.add(comodos);
         opImovel.add(dComodos);
         opImovel.add(area);
         opImovel.add(dArea);
+        opVeiculo.add(identificacao);
+        opVeiculo.add(dIdentificacao);
+        opVeiculo.add(porte);
+        opVeiculo.add(dPorte);
         this.add(opImovel);
         this.add(titulo);
         this.add(navbar);
