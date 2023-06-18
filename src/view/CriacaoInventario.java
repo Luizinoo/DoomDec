@@ -9,13 +9,11 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 
 public class CriacaoInventario extends JFrame {
-    private JButton criarImovel;
-    private JButton criarMovel;
-    private JButton criarVeiculo;
 
     public CriacaoInventario() {
 
-        //configurando janela
+        //Configurando Janela
+        setTitle("DoomDec");
         this.setLayout(null);
         this.setSize(1360, 730);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

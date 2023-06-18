@@ -9,12 +9,11 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 
 public class App extends JFrame {
-    private JButton criarBem;
-    private JButton verInventario;
 
     public App() {
 
         //configurando janela
+        setTitle("DoomDec");
         this.setLayout(null);
         this.setSize(1360, 730);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -48,6 +47,7 @@ public class App extends JFrame {
         verInventario.setFont(new Font("Regular", Font.BOLD, 48));
         verInventario.setForeground(new Color (255,255,255));
 
+        //adicionando
         this.add(titulo);
         this.add(navbar);
         this.add(texto);
@@ -56,7 +56,6 @@ public class App extends JFrame {
         this.setVisible(true);
         this.requestFocusInWindow();
     }
-
     public static void main(String[] args) {
         new App();
     }
