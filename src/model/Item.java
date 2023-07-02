@@ -1,5 +1,8 @@
 package src.model;
 
+/**
+* Uma classe abstrata que representa um item genérico.
+*/
 public abstract class Item {
     private String nome;
     private String tipo;
@@ -8,6 +11,16 @@ public abstract class Item {
     private String localizacao;
     private String dataAquisicao;
 
+    /**
+    * Construtor para a classe Item.
+    *
+    * @param nome          o nome do item
+    * @param tipo          o tipo do item
+    * @param valor         o valor do item
+    * @param descricao     a descrição do item
+    * @param localizacao   a localização do item
+    * @param dataAquisicao a data de aquisição do item
+    */
     public Item(
             String nome,
             String tipo,

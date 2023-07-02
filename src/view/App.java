@@ -2,15 +2,32 @@ package src.view;
 
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.JPanel;
+
+import src.model.Inventario;
+
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 
-public class App extends JFrame {
-
-    public App() {
+/**
+* Uma classe que representa a janela de aplicativo principal.
+*/
+public class App extends JFrame implements ActionListener{
+    
+    JButton criarBem, verInventario;
+    Inventario inv;
+    
+    /**
+    * Construtor para a classe App.
+    *
+    * @param inv o inventário associado ao aplicativo
+    */
+    public App(Inventario inv) {
+        this.inv = inv;
 
         //configurando janela
         setTitle("DoomDec");
@@ -36,16 +53,18 @@ public class App extends JFrame {
         texto.setFont(new Font("Regular", Font.BOLD, 70));
 
         //configurando botões
-        JButton criarBem = new JButton("Criar Bem");
+        criarBem = new JButton("Criar Bem");
         criarBem.setBounds(480,365,400, 60);
         criarBem.setFont(new Font("Regular", Font.BOLD, 48));
         criarBem.setBackground(new Color (11,181,79));
         criarBem.setForeground(new Color (255,255,255));
-        JButton verInventario = new JButton("Ver Inventario");
+        criarBem.addActionListener(this);
+        verInventario = new JButton("Ver Inventario");
         verInventario.setBounds(480,500,400, 60);
         verInventario.setBackground(new Color (11,181,79));
         verInventario.setFont(new Font("Regular", Font.BOLD, 48));
         verInventario.setForeground(new Color (255,255,255));
+        verInventario.addActionListener(this);
 
         //adicionando
         this.add(titulo);
@@ -56,7 +75,20 @@ public class App extends JFrame {
         this.setVisible(true);
         this.requestFocusInWindow();
     }
-    public static void main(String[] args) {
-        new App();
+    
+    /**
+    * Método de ação para eventos de botão.
+    *
+    * @param e o evento de ação
+    */
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        Object clicado = e.getSource();
+        if (clicado == criarBem) {
+            new CrudInventario(inv);
+        }
+        if (clicado == verInventario) {
+            new Lista(inv);
+        }
     }
 }

@@ -1,8 +1,22 @@
 package src.model;
 
+/**
+* Uma classe que representa um móvel.
+*/
 public class Movel extends Item {
     private String dimencoes;
 
+    /**
+    * Construtor para a classe Movel.
+    *
+    * @param nome          o nome do móvel
+    * @param tipo          o tipo do móvel
+    * @param valor         o valor do móvel
+    * @param descricao     a descrição do móvel
+    * @param localizacao   a localização do móvel
+    * @param dataAquisicao a data de aquisição do móvel
+    * @param dimencoes     as dimensões do móvel
+    */
     public Movel(
             String nome,
             String tipo,
@@ -23,6 +37,11 @@ public class Movel extends Item {
         this.dimencoes = dimencoes;
     }
 
+    /**
+    * Retorna uma representação em string do objeto Movel.
+    *
+    * @return uma representação em string do objeto Movel
+    */
     public String toString() {
         return getNome()
                 + "\n" + getTipo()

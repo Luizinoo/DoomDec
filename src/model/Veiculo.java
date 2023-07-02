@@ -1,9 +1,24 @@
 package src.model;
 
+/**
+* Uma classe que representa um veículo.
+*/
 public class Veiculo extends Item {
     private String identificacao;
     private char porte;
 
+    /**
+    * Construtor para a classe Veiculo.
+    *
+    * @param nome           o nome do veículo
+    * @param tipo           o tipo do veículo
+    * @param valor          o valor do veículo
+    * @param descricao      a descrição do veículo
+    * @param localizacao    a localização do veículo
+    * @param dataAquisicao  a data de aquisição do veículo
+    * @param identificacao  a identificação do veículo
+    * @param porte          o porte do veículo
+    */
     public Veiculo(
             String nome,
             String tipo,
@@ -34,6 +49,12 @@ public class Veiculo extends Item {
         this.porte = porte;
     }
 
+    /**
+    * Retorna uma representação em string do objeto Veiculo.
+    *
+    * @return uma representação em string do objeto Veiculo
+    */
+    @Override
     public String toString() {
         return getNome()
                 + "\n" + getTipo()

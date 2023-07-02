@@ -2,6 +2,8 @@ package src.view;
 
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
@@ -11,9 +13,22 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextField;
 
-public class Inventario extends JFrame {
+import src.model.Inventario;
 
-    public Inventario() {
+/**
+* Uma classe que representa a janela de lista de itens do inventário.
+*/
+public class Lista extends JFrame implements ActionListener{
+
+    JButton criarBem, bPesquisa;
+    Inventario inv;
+    
+    /**
+    * Construtor para a classe Lista.
+    *
+    * @param inv o inventário associado à lista
+    */
+    public Lista(Inventario inv) {
 
         //configurando janela
         setTitle("DoomDec");
@@ -38,11 +53,13 @@ public class Inventario extends JFrame {
         bPesquisa.setFont(new Font("Regular", Font.BOLD, 38));
         bPesquisa.setBackground(new Color (11,181,79));
         bPesquisa.setForeground(new Color (255,255,255));
-        JButton bCriarBem = new JButton("Criar Bem");
-        bCriarBem.setBounds(920,23,400, 55);
-        bCriarBem.setFont(new Font("Regular", Font.BOLD, 38));
-        bCriarBem.setBackground(new Color (11,181,79));
-        bCriarBem.setForeground(new Color (255,255,255));
+        bPesquisa.addActionListener(this);
+        criarBem = new JButton("Criar Bem");
+        criarBem.setBounds(920,23,400, 55);
+        criarBem.setFont(new Font("Regular", Font.BOLD, 38));
+        criarBem.setBackground(new Color (11,181,79));
+        criarBem.setForeground(new Color (255,255,255));
+        criarBem.addActionListener(this);
 
         //configurando pesquisa
         JTextField pesquisa = new JTextField();
@@ -96,13 +113,26 @@ public class Inventario extends JFrame {
         this.add(tVeiculos);
         this.add(titulo);
         this.add(navbar);
-        this.add(bPesquisa);
-        this.add(bCriarBem);
         this.add(pesquisa);
+        this.add(criarBem);
+        this.add(bPesquisa);
         this.setVisible(true);
         this.requestFocusInWindow();
     }
-    public static void main(String[] args) {
-        new Inventario();
+
+    /**
+    * Método de ação para eventos de botão.
+    *
+    * @param e o evento de ação
+    */
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        Object clicado = e.getSource();
+        if (clicado == criarBem) {
+            new CrudInventario(inv);
+        }
+        if (clicado == bPesquisa) {
+            new Lista(inv);
+        }
     }
 }
