@@ -37,9 +37,9 @@ public class CrudInventario extends JFrame implements ActionListener {
     *
     * @param inv O inventário a ser gerenciado.
     */
-    public CrudInventario(Inventario inv){
+    public CrudInventario(Inventario inventario){
         
-        this.inv = inv;
+        this.inv = inventario;
 
         //Configurando Janela
         setTitle("DoomDec");
@@ -284,19 +284,18 @@ public class CrudInventario extends JFrame implements ActionListener {
             if (opMovel.isVisible()) {
                 mobilia = new Movel(nome.getText(), tipo.getText(), Integer.parseInt(valor.getText()) ,descricao.getText(), local.getText(), data.getText(), dimencoes.getText());
                 inv.addItem(mobilia);
-                inv.toString();
+                System.out.println(inv.toString());
             }
             if (opImovel.isVisible()) {
                 moradia = new Imovel(nome.getText(), tipo.getText(), Integer.parseInt(valor.getText()), descricao.getText(), local.getText(), data.getText(), Integer.parseInt(comodos.getText()), Integer.parseInt(area.getText()));
                 inv.addItem(moradia);
-                inv.toString();
+                System.out.println(inv.toString());
             }
             if (opVeiculo.isVisible()) {
-                transporte = new Veiculo(nome.getText(), tipo.getText(),  Integer.parseInt(valor.getText()), descricao.getText(), local.getText(), data.getText(), identificacao.getText(), (char) Integer.parseInt(porte.getText()));
+                transporte = new Veiculo(nome.getText(), tipo.getText(),  Integer.parseInt(valor.getText()), descricao.getText(), local.getText(), data.getText(), identificacao.getText(), porte.getText());
                 inv.addItem(transporte);
                 System.out.println(inv.toString());
             }
-            inv.toString();
         }
     }
 }

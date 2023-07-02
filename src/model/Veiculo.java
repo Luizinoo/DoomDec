@@ -5,7 +5,7 @@ package model;
 */
 public class Veiculo extends Item {
     private String identificacao;
-    private char porte;
+    private String porte;
 
     /**
     * Construtor para a classe Veiculo.
@@ -27,7 +27,7 @@ public class Veiculo extends Item {
             String localizacao,
             String dataAquisicao,
             String identificacao,
-            char porte) {
+            String porte) {
         super(nome, tipo, valor, descricao, localizacao, dataAquisicao);
         this.identificacao = identificacao;
         this.porte = porte;
@@ -41,13 +41,15 @@ public class Veiculo extends Item {
         this.identificacao = identificacao;
     }
 
-    public char getPorte() {
+    public String getPorte() {
         return porte;
     }
 
-    public void setPorte(char porte) {
+    public void setPorte(String porte) {
         this.porte = porte;
     }
+
+    
 
     @Override
     public String toString() {
