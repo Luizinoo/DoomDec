@@ -1,4 +1,4 @@
-package src.view;
+package view;
 
 import java.awt.Color;
 import java.awt.Font;
@@ -13,7 +13,7 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextField;
 
-import src.model.Inventario;
+import model.Inventario;
 
 /**
 * Uma classe que representa a janela de lista de itens do inventário.

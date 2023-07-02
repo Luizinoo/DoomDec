@@ -1,4 +1,4 @@
-package src.model;
+package model;
 
 /**
 * Uma classe que representa um veículo.

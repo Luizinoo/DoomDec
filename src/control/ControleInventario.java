@@ -1,14 +1,14 @@
-package src.control;
+package control;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 
-import src.model.Imovel;
-import src.model.Inventario;
-import src.model.Item;
-import src.model.Movel;
-import src.model.Veiculo;
-import src.view.App;
+import model.Imovel;
+import model.Inventario;
+import model.Item;
+import model.Movel;
+import model.Veiculo;
+import view.App;
 
 /**
 * Classe responsável por controlar o inventário.

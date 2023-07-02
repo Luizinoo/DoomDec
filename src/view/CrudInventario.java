@@ -1,4 +1,4 @@
-package src.view;
+package view;
 
 import java.awt.Color;
 import java.awt.Font;
@@ -8,10 +8,10 @@ import java.awt.event.ActionListener;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-import src.model.Imovel;
-import src.model.Inventario;
-import src.model.Movel;
-import src.model.Veiculo;
+import model.Imovel;
+import model.Inventario;
+import model.Movel;
+import model.Veiculo;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;

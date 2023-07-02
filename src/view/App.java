@@ -1,4 +1,4 @@
-package src.view;
+package view;
 
 import java.awt.Color;
 import java.awt.Font;
@@ -7,7 +7,7 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JPanel;
 
-import src.model.Inventario;
+import model.Inventario;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
