@@ -37,11 +37,6 @@ public class Movel extends Item {
         this.dimencoes = dimencoes;
     }
 
-    /**
-    * Retorna uma representação em string do objeto Movel.
-    *
-    * @return uma representação em string do objeto Movel
-    */
     public String toString() {
         return getNome()
                 + "\n" + getTipo()

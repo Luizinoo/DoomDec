@@ -50,11 +50,6 @@ public class Inventario {
         this.itens = itens;
     }
 
-    /**
-    * Retorna uma representação em string do objeto Inventario.
-    *
-    * @return uma representação em string do objeto Inventario
-    */
     @Override
     public String toString() {
         String result;

@@ -49,11 +49,6 @@ public class Veiculo extends Item {
         this.porte = porte;
     }
 
-    /**
-    * Retorna uma representação em string do objeto Veiculo.
-    *
-    * @return uma representação em string do objeto Veiculo
-    */
     @Override
     public String toString() {
         return getNome()

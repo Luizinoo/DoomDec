@@ -48,11 +48,7 @@ public class Imovel extends Item {
     public void setArea(int area) {
         this.area = area;
     }
-    /**
-    * Retorna uma representação em string do objeto Imovel.
-    *
-    * @return uma representação em string do objeto
-    */
+    
     @Override
     public String toString() {
         return getNome()
