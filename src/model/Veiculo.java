@@ -1,24 +1,24 @@
 package model;
 
 /**
-* Uma classe que representa um veículo.
-*/
+ * Uma classe que representa um veículo.
+ */
 public class Veiculo extends Item {
     private String identificacao;
     private String porte;
 
     /**
-    * Construtor para a classe Veiculo.
-    *
-    * @param nome           o nome do veículo
-    * @param tipo           o tipo do veículo
-    * @param valor          o valor do veículo
-    * @param descricao      a descrição do veículo
-    * @param localizacao    a localização do veículo
-    * @param dataAquisicao  a data de aquisição do veículo
-    * @param identificacao  a identificação do veículo
-    * @param porte          o porte do veículo
-    */
+     * Construtor para a classe Veiculo.
+     *
+     * @param nome          o nome do veículo
+     * @param tipo          o tipo do veículo
+     * @param valor         o valor do veículo
+     * @param descricao     a descrição do veículo
+     * @param localizacao   a localização do veículo
+     * @param dataAquisicao a data de aquisição do veículo
+     * @param identificacao a identificação do veículo
+     * @param porte         o porte do veículo
+     */
     public Veiculo(
             String nome,
             String tipo,
@@ -48,8 +48,6 @@ public class Veiculo extends Item {
     public void setPorte(String porte) {
         this.porte = porte;
     }
-
-    
 
     @Override
     public String toString() {

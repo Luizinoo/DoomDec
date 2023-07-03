@@ -14,18 +14,18 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 
 /**
- * Uma classe que representa a janela de aplicativo principal.
- */
+* Uma classe que representa a janela de aplicativo principal.
+*/
 public class App extends JFrame implements ActionListener {
 
     JButton criarBem, verInventario;
     Inventario inv;
 
     /**
-     * Construtor para a classe App.
-     *
-     * @param inv o inventário associado ao aplicativo
-     */
+    * Construtor para a classe App.
+    *
+    * @param inv o inventário associado ao aplicativo
+    */
     public App(Inventario inventario) {
         this.inv = inventario;
 
@@ -77,10 +77,10 @@ public class App extends JFrame implements ActionListener {
     }
 
     /**
-     * Método de ação para eventos de botão.
-     *
-     * @param e o evento de ação
-     */
+    * Método de ação para eventos de botão.
+    *
+    * @param e o evento de ação
+    */
     @Override
     public void actionPerformed(ActionEvent e) {
         Object clicado = e.getSource();
@@ -93,15 +93,15 @@ public class App extends JFrame implements ActionListener {
     }
 
     /**
-     * Método principal para executar o programa.
-     *
-     * @param args os argumentos de linha de comando
-     */
+    * Método principal para executar o programa.
+    *
+    * @param args os argumentos de linha de comando
+    */
     public static void main(String[] args) {
-        Inventario  inv = new Inventario(
-        "Epic Gomes",
-        false,
-        null);
+        Inventario inv = new Inventario(
+                "Epic Gomes",
+                false,
+                null);
         inv.dadosPrecarregados();
         new App(inv);
     }

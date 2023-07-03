@@ -10,6 +10,7 @@ import javax.swing.JTextField;
 
 import model.Imovel;
 import model.Inventario;
+import model.Item;
 import model.Movel;
 import model.Veiculo;
 
@@ -18,37 +19,40 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 
 /**
-* A classe CrudInventario é responsável por exibir uma interface gráfica para gerenciar um inventário de itens.
-* Permite a criação de itens do tipo Imovel, Movel e Veiculo, além de salvá-los no inventário.
-*/
+ * A classe CrudInventario é responsável por exibir uma interface gráfica para
+ * gerenciar um inventário de itens.
+ * Permite a criação de itens do tipo Imovel, Movel e Veiculo, além de salvá-los
+ * no inventário.
+ */
 public class CrudInventario extends JFrame implements ActionListener {
 
-    JButton criarImovel, criarMovel, criarVeiculo, botaoSalvar;
+    JButton criarImovel, criarMovel, criarVeiculo, botaoSalvar, editar;
     JPanel opMovel, opImovel, opVeiculo;
     JTextField nome, tipo, descricao, valor, local, data, comodos, area, dimencoes, identificacao, porte;
     Imovel moradia;
     Movel mobilia;
     Veiculo transporte;
     Inventario inv;
+    String itemEditando;
 
     /**
-    * Construtor da classe CrudInventario.
-    * Inicializa a interface gráfica e configura os componentes necessários.
-    *
-    * @param inv O inventário a ser gerenciado.
-    */
-    public CrudInventario(Inventario inventario){
-        
+     * Construtor da classe CrudInventario.
+     * Inicializa a interface gráfica e configura os componentes necessários.
+     *
+     * @param inv O inventário a ser gerenciado.
+     */
+    public CrudInventario(Inventario inventario) {
+
         this.inv = inventario;
 
-        //Configurando Janela
+        // Configurando Janela
         setTitle("DoomDec");
         this.setLayout(null);
         this.setSize(1360, 730);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.getContentPane().setBackground(new Color(255, 255, 255));
 
-        //Configurando Navbar
+        // Configurando Navbar
         JPanel navbar = new JPanel();
         navbar.setLayout(null);
         navbar.setBounds(0, 0, 1360, 100);
@@ -58,35 +62,33 @@ public class CrudInventario extends JFrame implements ActionListener {
         titulo.setBounds(20, 25, 325, 51);
         titulo.setFont(new Font("Regular", Font.BOLD, 48));
 
-        //configurando botões
+        // configurando botões
         criarImovel = new JButton("Criar Imovel");
-        criarImovel.setBounds(445,37,160, 32);
+        criarImovel.setBounds(445, 37, 160, 32);
         criarImovel.setFont(new Font("Regular", Font.BOLD, 16));
-        criarImovel.setBackground(new Color (11,181,79));
-        criarImovel.setForeground(new Color (255,255,255));
+        criarImovel.setBackground(new Color(11, 181, 79));
+        criarImovel.setForeground(new Color(255, 255, 255));
         criarImovel.addActionListener(this);
         criarMovel = new JButton("Criar Movel");
-        criarMovel.setBounds(624,37,160, 32);
-        criarMovel.setBackground(new Color (11,181,79));
+        criarMovel.setBounds(624, 37, 160, 32);
+        criarMovel.setBackground(new Color(11, 181, 79));
         criarMovel.setFont(new Font("Regular", Font.BOLD, 16));
-        criarMovel.setForeground(new Color (255,255,255));
+        criarMovel.setForeground(new Color(255, 255, 255));
         criarMovel.addActionListener(this);
         criarVeiculo = new JButton("Criar Veiculo");
-        criarVeiculo.setBounds(803,37,160, 32);
-        criarVeiculo.setBackground(new Color (11,181,79));
+        criarVeiculo.setBounds(803, 37, 160, 32);
+        criarVeiculo.setBackground(new Color(11, 181, 79));
         criarVeiculo.setFont(new Font("Regular", Font.BOLD, 16));
-        criarVeiculo.setForeground(new Color (255,255,255));
+        criarVeiculo.setForeground(new Color(255, 255, 255));
         criarVeiculo.addActionListener(this);
         botaoSalvar = new JButton("Salvar");
-        botaoSalvar.setBounds(480,621,400, 60);
-        botaoSalvar.setBackground(new Color (11,181,79));
+        botaoSalvar.setBounds(480, 621, 400, 60);
+        botaoSalvar.setBackground(new Color(11, 181, 79));
         botaoSalvar.setFont(new Font("Regular", Font.BOLD, 48));
-        botaoSalvar.setForeground(new Color (255,255,255));
+        botaoSalvar.setForeground(new Color(255, 255, 255));
         botaoSalvar.addActionListener(this);
 
-        
-
-        //configurando leitura de textos: nome
+        // configurando leitura de textos: nome
         JLabel dNome = new JLabel("Nome");
         dNome.setForeground(Color.black);
         dNome.setBounds(92, 157, 85, 36);
@@ -96,7 +98,7 @@ public class CrudInventario extends JFrame implements ActionListener {
         nome.setFont(new Font("Regular", Font.BOLD, 29));
         nome.setBackground(new Color(217, 217, 217));
 
-        //tipo
+        // tipo
         JLabel dTipo = new JLabel("Tipo");
         dTipo.setForeground(Color.black);
         dTipo.setBounds(718, 157, 65, 36);
@@ -106,7 +108,7 @@ public class CrudInventario extends JFrame implements ActionListener {
         tipo.setFont(new Font("Regular", Font.BOLD, 29));
         tipo.setBackground(new Color(217, 217, 217));
 
-        //valor
+        // valor
         JLabel dValor = new JLabel("Valor");
         dValor.setForeground(Color.black);
         dValor.setBounds(92, 264, 75, 36);
@@ -116,7 +118,7 @@ public class CrudInventario extends JFrame implements ActionListener {
         valor.setFont(new Font("Regular", Font.BOLD, 29));
         valor.setBackground(new Color(217, 217, 217));
 
-        //descricao
+        // descricao
         JLabel dDescricao = new JLabel("Descrição");
         dDescricao.setForeground(Color.black);
         dDescricao.setBounds(718, 264, 150, 36);
@@ -126,7 +128,7 @@ public class CrudInventario extends JFrame implements ActionListener {
         descricao.setFont(new Font("Regular", Font.BOLD, 29));
         descricao.setBackground(new Color(217, 217, 217));
 
-        //local
+        // local
         JLabel dLocal = new JLabel("Local");
         dLocal.setForeground(Color.black);
         dLocal.setBounds(92, 371, 80, 36);
@@ -136,7 +138,7 @@ public class CrudInventario extends JFrame implements ActionListener {
         local.setFont(new Font("Regular", Font.BOLD, 29));
         local.setBackground(new Color(217, 217, 217));
 
-        //data de aquisicao
+        // data de aquisicao
         JLabel dData = new JLabel("Data de Aquisição");
         dData.setForeground(Color.black);
         dData.setBounds(718, 371, 260, 36);
@@ -146,7 +148,7 @@ public class CrudInventario extends JFrame implements ActionListener {
         data.setFont(new Font("Regular", Font.BOLD, 29));
         data.setBackground(new Color(217, 217, 217));
 
-        //numero de comodos
+        // numero de comodos
         JLabel dComodos = new JLabel("Nº de Comodos");
         dComodos.setForeground(Color.black);
         dComodos.setBounds(92, 8, 230, 36);
@@ -156,7 +158,7 @@ public class CrudInventario extends JFrame implements ActionListener {
         comodos.setFont(new Font("Regular", Font.BOLD, 29));
         comodos.setBackground(new Color(217, 217, 217));
 
-        //Area
+        // Area
         JLabel dArea = new JLabel("Area");
         dArea.setForeground(Color.black);
         dArea.setBounds(718, 8, 70, 36);
@@ -166,7 +168,7 @@ public class CrudInventario extends JFrame implements ActionListener {
         area.setFont(new Font("Regular", Font.BOLD, 29));
         area.setBackground(new Color(217, 217, 217));
 
-        //dimenções
+        // dimenções
         JLabel dDimencoes = new JLabel("Dimenções");
         dDimencoes.setForeground(Color.black);
         dDimencoes.setBounds(92, 8, 230, 36);
@@ -176,7 +178,7 @@ public class CrudInventario extends JFrame implements ActionListener {
         dimencoes.setFont(new Font("Regular", Font.BOLD, 29));
         dimencoes.setBackground(new Color(217, 217, 217));
 
-        //identificação
+        // identificação
         JLabel dIdentificacao = new JLabel("Identificação");
         dIdentificacao.setForeground(Color.black);
         dIdentificacao.setBounds(92, 8, 230, 36);
@@ -186,7 +188,7 @@ public class CrudInventario extends JFrame implements ActionListener {
         identificacao.setFont(new Font("Regular", Font.BOLD, 29));
         identificacao.setBackground(new Color(217, 217, 217));
 
-        //porte
+        // porte
         JLabel dPorte = new JLabel("Porte");
         dPorte.setForeground(Color.black);
         dPorte.setBounds(718, 8, 80, 36);
@@ -209,7 +211,7 @@ public class CrudInventario extends JFrame implements ActionListener {
         opVeiculo.setBounds(0, 470, 1360, 150);
         opVeiculo.setBackground(new Color(255, 255, 255));
 
-        //Adicionando
+        // Adicionando
         this.add(criarImovel);
         this.add(criarMovel);
         this.add(criarVeiculo);
@@ -245,15 +247,65 @@ public class CrudInventario extends JFrame implements ActionListener {
         this.setVisible(true);
         this.requestFocusInWindow();
     }
-    
-    public Movel getMobilia() {
-        return mobilia;
-    }
-    public Imovel getMoradia() {
-        return moradia;
-    }
-    public Veiculo getTrasporte() {
-        return transporte;
+
+    /**
+     * Construtor adicional da classe CrudInventario para editar um item existente.
+     * Inicializa a interface gráfica e configura os componentes necessários com
+     * base no item a ser editado.
+     *
+     * @param inventario O inventário a ser gerenciado.
+     * @param item       O nome do item a ser editado.
+     */
+    public CrudInventario(Inventario inventario, String item) {
+        //sobrecarga do contrutor para edição
+        this(inventario);
+        this.itemEditando = item;
+        Item editando = inv.pesquisarItem(item);
+        nome.setText(editando.getNome());
+        tipo.setText(editando.getTipo());
+        valor.setText(Integer.toString(editando.getValor()));
+        descricao.setText(editando.getDescricao());
+        local.setText(editando.getLocalizacao());
+        data.setText(editando.getDataAquisicao());
+        botaoSalvar.setVisible(false);
+        editar = new JButton("Editar");
+        editar.setBounds(480, 621, 400, 60);
+        editar.setBackground(new Color(11, 181, 79));
+        editar.setFont(new Font("Regular", Font.BOLD, 48));
+        editar.setForeground(new Color(255, 255, 255));
+        editar.addActionListener(this);
+
+        if (editando instanceof Veiculo) {
+            opImovel.setVisible(false);
+            opMovel.setVisible(false);
+            opVeiculo.setVisible(true);
+            criarImovel.setVisible(false);
+            criarMovel.setVisible(false);
+            criarVeiculo.setVisible(false);
+            identificacao.setText(((Veiculo) editando).getIdentificacao());
+            porte.setText(((Veiculo) editando).getPorte());
+        }
+        if (editando instanceof Movel) {
+            opImovel.setVisible(false);
+            opMovel.setVisible(true);
+            opVeiculo.setVisible(false);
+            criarImovel.setVisible(false);
+            criarMovel.setVisible(false);
+            criarVeiculo.setVisible(false);
+            dimencoes.setText(((Movel) editando).getDimencoes());
+        }
+        if (editando instanceof Imovel) {
+            opImovel.setVisible(true);
+            opMovel.setVisible(false);
+            opVeiculo.setVisible(false);
+            criarImovel.setVisible(false);
+            criarMovel.setVisible(false);
+            criarVeiculo.setVisible(false);
+            comodos.setText(Integer.toString(((Imovel) editando).getNumComodos()));
+            area.setText(Integer.toString(((Imovel) editando).getArea()));
+        }
+
+        this.add(editar);
     }
 
     /**
@@ -280,21 +332,41 @@ public class CrudInventario extends JFrame implements ActionListener {
             opMovel.setVisible(false);
             opVeiculo.setVisible(true);
         }
-        if (clicado == botaoSalvar){
+
+        if (clicado == botaoSalvar) {
             if (opMovel.isVisible()) {
-                mobilia = new Movel(nome.getText(), tipo.getText(), Integer.parseInt(valor.getText()) ,descricao.getText(), local.getText(), data.getText(), dimencoes.getText());
+                mobilia = new Movel(nome.getText(), tipo.getText(), Integer.parseInt(valor.getText()),
+                        descricao.getText(), local.getText(), data.getText(), dimencoes.getText());
                 inv.addItem(mobilia);
-                System.out.println(inv.toString());
             }
             if (opImovel.isVisible()) {
-                moradia = new Imovel(nome.getText(), tipo.getText(), Integer.parseInt(valor.getText()), descricao.getText(), local.getText(), data.getText(), Integer.parseInt(comodos.getText()), Integer.parseInt(area.getText()));
+                moradia = new Imovel(nome.getText(), tipo.getText(), Integer.parseInt(valor.getText()),
+                        descricao.getText(), local.getText(), data.getText(), Integer.parseInt(comodos.getText()),
+                        Integer.parseInt(area.getText()));
                 inv.addItem(moradia);
-                System.out.println(inv.toString());
             }
             if (opVeiculo.isVisible()) {
-                transporte = new Veiculo(nome.getText(), tipo.getText(),  Integer.parseInt(valor.getText()), descricao.getText(), local.getText(), data.getText(), identificacao.getText(), porte.getText());
+                transporte = new Veiculo(nome.getText(), tipo.getText(), Integer.parseInt(valor.getText()),
+                        descricao.getText(), local.getText(), data.getText(), identificacao.getText(), porte.getText());
                 inv.addItem(transporte);
-                System.out.println(inv.toString());
+            }
+        }
+        if (clicado == editar) {
+            if (opMovel.isVisible()) {
+                mobilia = new Movel(nome.getText(), tipo.getText(), Integer.parseInt(valor.getText()),
+                        descricao.getText(), local.getText(), data.getText(), dimencoes.getText());
+                inv.editarItem(itemEditando, mobilia);
+            }
+            if (opImovel.isVisible()) {
+                moradia = new Imovel(nome.getText(), tipo.getText(), Integer.parseInt(valor.getText()),
+                        descricao.getText(), local.getText(), data.getText(), Integer.parseInt(comodos.getText()),
+                        Integer.parseInt(area.getText()));
+                inv.editarItem(itemEditando, moradia);
+            }
+            if (opVeiculo.isVisible()) {
+                transporte = new Veiculo(nome.getText(), tipo.getText(), Integer.parseInt(valor.getText()),
+                        descricao.getText(), local.getText(), data.getText(), identificacao.getText(), porte.getText());
+                inv.editarItem(itemEditando, transporte);
             }
         }
     }

@@ -1,24 +1,24 @@
 package model;
 
 /**
-* Uma classe que representa um imóvel.
-*/
+ * Uma classe que representa um imóvel.
+ */
 public class Imovel extends Item {
     private int numComodos;
     private int area;
 
     /**
-    * Constrói um objeto Imovel com os parâmetros especificados.
-    *
-    * @param nome          o nome do imóvel
-    * @param tipo          o tipo do imóvel
-    * @param valor         o valor do imóvel
-    * @param descricao     a descrição do imóvel
-    * @param localizacao   a localização do imóvel
-    * @param dataAquisicao a data de aquisição do imóvel
-    * @param numComodos    o número de cômodos do imóvel
-    * @param area          a área do imóvel
-    */
+     * Constrói um objeto Imovel com os parâmetros especificados.
+     *
+     * @param nome          o nome do imóvel
+     * @param tipo          o tipo do imóvel
+     * @param valor         o valor do imóvel
+     * @param descricao     a descrição do imóvel
+     * @param localizacao   a localização do imóvel
+     * @param dataAquisicao a data de aquisição do imóvel
+     * @param numComodos    o número de cômodos do imóvel
+     * @param area          a área do imóvel
+     */
     public Imovel(
             String nome,
             String tipo,
@@ -48,7 +48,7 @@ public class Imovel extends Item {
     public void setArea(int area) {
         this.area = area;
     }
-    
+
     @Override
     public String toString() {
         return getNome()
