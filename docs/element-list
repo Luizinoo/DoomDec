@@ -1,3 +1,2 @@
-src.control
-src.model
-src.view
+model
+view
